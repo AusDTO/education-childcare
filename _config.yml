@@ -1,0 +1,36 @@
+assets:
+  sources:
+    - _assets/fonts
+    - _assets/images
+    - _assets/javascripts
+    - _assets/stylesheets
+    - _vendor/
+    - gov-au-ui-kit/assets/js/
+
+baseurl: /
+
+exclude:
+  - .bowerrc
+  - .travis.yml
+  - bin/*
+  - bower.json
+  - circle.yml
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - vendor/
+  - gov-au-ui-kit
+
+ga_analytics: UA-XXXXXXXX-X
+
+gems:
+  - jekyll-assets
+  - jekyll-sitemap
+
+name: edu
+
+permalink: pretty
+
+url: # add site url
+
+port: 7000
