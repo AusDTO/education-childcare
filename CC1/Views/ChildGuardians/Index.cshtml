@@ -1,0 +1,69 @@
+﻿@model IEnumerable<CC1.Models.childGuardian>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Child
+        </th>
+        <th>
+            Guardian
+        </th>
+        <th>
+            Relationship
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedUserId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UpdateUserId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UpdateDate)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ccChild.FullName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.user.FullName)
+        </td>
+        <td>
+            @Html.DisplayFor(model => item.Relationship)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedUserId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UpdateUserId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UpdateDate)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ChildGuardianId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ChildGuardianId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ChildGuardianId })
+        </td>
+    </tr>
+}
+
+</table>

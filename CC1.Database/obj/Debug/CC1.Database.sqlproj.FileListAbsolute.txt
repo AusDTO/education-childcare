@@ -1,0 +1,5 @@
+C:\data\Web\CC1\CC1.Database\bin\Debug\CC1.Database.dacpac
+C:\data\Web\CC1\CC1.Database\obj\Debug\CC1.Database.dll
+C:\data\Web\CC1\CC1.Database\obj\Debug\CC1.Database.pdb
+C:\data\Web\CC1\CC1.Database\bin\Debug\CC1.Database.dll
+C:\data\Web\CC1\CC1.Database\bin\Debug\CC1.Database.pdb

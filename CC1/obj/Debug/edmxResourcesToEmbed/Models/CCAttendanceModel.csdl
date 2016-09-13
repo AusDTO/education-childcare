@@ -1,0 +1,711 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CCAttendanceModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="CCAttendanceEntities" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(CCAttendanceModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(CCAttendanceModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+    <EntitySet Name="attendances" EntityType="CCAttendanceModel.attendance" />
+    <EntitySet Name="attendanceExpecteds" EntityType="CCAttendanceModel.attendanceExpected" />
+    <EntitySet Name="attendanceStatus" EntityType="CCAttendanceModel.attendanceStatu" />
+    <EntitySet Name="ccChilds" EntityType="CCAttendanceModel.ccChild" />
+    <EntitySet Name="childGuardians" EntityType="CCAttendanceModel.childGuardian" />
+    <EntitySet Name="providerUsers" EntityType="CCAttendanceModel.providerUser" />
+    <EntitySet Name="providerUserRoles" EntityType="CCAttendanceModel.providerUserRole" />
+    <EntitySet Name="refRoles" EntityType="CCAttendanceModel.refRole" />
+    <EntitySet Name="refStatus" EntityType="CCAttendanceModel.refStatu" />
+    <EntitySet Name="sysdiagrams" EntityType="CCAttendanceModel.sysdiagram" />
+    <EntitySet Name="attendanceAs" EntityType="CCAttendanceModel.attendanceA" />
+    <AssociationSet Name="FK_attendance_ccChild" Association="CCAttendanceModel.FK_attendance_ccChild">
+      <End Role="ccChild" EntitySet="ccChilds" />
+      <End Role="attendance" EntitySet="attendances" />
+    </AssociationSet>
+    <AssociationSet Name="FK_attendanceStatus_attendance" Association="CCAttendanceModel.FK_attendanceStatus_attendance">
+      <End Role="attendance" EntitySet="attendances" />
+      <End Role="attendanceStatu" EntitySet="attendanceStatus" />
+    </AssociationSet>
+    <AssociationSet Name="FK_attendanceExpected_ccChild" Association="CCAttendanceModel.FK_attendanceExpected_ccChild">
+      <End Role="ccChild" EntitySet="ccChilds" />
+      <End Role="attendanceExpected" EntitySet="attendanceExpecteds" />
+    </AssociationSet>
+    <AssociationSet Name="FK_attendanceStatus_refStatus" Association="CCAttendanceModel.FK_attendanceStatus_refStatus">
+      <End Role="refStatu" EntitySet="refStatus" />
+      <End Role="attendanceStatu" EntitySet="attendanceStatus" />
+    </AssociationSet>
+    <AssociationSet Name="FK_childGuardian_ccChild" Association="CCAttendanceModel.FK_childGuardian_ccChild">
+      <End Role="ccChild" EntitySet="ccChilds" />
+      <End Role="childGuardian" EntitySet="childGuardians" />
+    </AssociationSet>
+    <AssociationSet Name="FK_providerUserRoles_providerUser" Association="CCAttendanceModel.FK_providerUserRoles_providerUser">
+      <End Role="providerUser" EntitySet="providerUsers" />
+      <End Role="providerUserRole1" EntitySet="providerUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_providerUserRoles_role" Association="CCAttendanceModel.FK_providerUserRoles_role">
+      <End Role="refRole" EntitySet="refRoles" />
+      <End Role="providerUserRole1" EntitySet="providerUserRoles" />
+    </AssociationSet>
+    <FunctionImport Name="sp_alterdiagram1">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram1">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram1">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition1" ReturnType="Collection(CCAttendanceModel.sp_helpdiagramdefinition1_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams1" ReturnType="Collection(CCAttendanceModel.sp_helpdiagrams1_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram1">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams1" />
+    <EntitySet Name="refStates" EntityType="CCAttendanceModel.refState" />
+    <EntitySet Name="users" EntityType="CCAttendanceModel.user" />
+    <AssociationSet Name="FK_attendance_user" Association="CCAttendanceModel.FK_attendance_user">
+      <End Role="user" EntitySet="users" />
+      <End Role="attendance" EntitySet="attendances" />
+    </AssociationSet>
+    <AssociationSet Name="FK_attendanceExpected_user" Association="CCAttendanceModel.FK_attendanceExpected_user">
+      <End Role="user" EntitySet="users" />
+      <End Role="attendanceExpected" EntitySet="attendanceExpecteds" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ccChild_user" Association="CCAttendanceModel.FK_ccChild_user">
+      <End Role="user" EntitySet="users" />
+      <End Role="ccChild" EntitySet="ccChilds" />
+    </AssociationSet>
+    <AssociationSet Name="FK_childGuardian_user" Association="CCAttendanceModel.FK_childGuardian_user">
+      <End Role="user" EntitySet="users" />
+      <End Role="childGuardian" EntitySet="childGuardians" />
+    </AssociationSet>
+    <AssociationSet Name="FK_providerUser_user" Association="CCAttendanceModel.FK_providerUser_user">
+      <End Role="user" EntitySet="users" />
+      <End Role="providerUser" EntitySet="providerUsers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_providerUser_user1" Association="CCAttendanceModel.FK_providerUser_user1">
+      <End Role="user" EntitySet="users" />
+      <End Role="providerUser" EntitySet="providerUsers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_user_refState" Association="CCAttendanceModel.FK_user_refState">
+      <End Role="refState" EntitySet="refStates" />
+      <End Role="user" EntitySet="users" />
+    </AssociationSet>
+    <EntitySet Name="providers" EntityType="CCAttendanceModel.provider" />
+    <AssociationSet Name="FK_attendance_provider" Association="CCAttendanceModel.FK_attendance_provider">
+      <End Role="provider" EntitySet="providers" />
+      <End Role="attendance" EntitySet="attendances" />
+    </AssociationSet>
+    <AssociationSet Name="FK_attendanceExpected_provider" Association="CCAttendanceModel.FK_attendanceExpected_provider">
+      <End Role="provider" EntitySet="providers" />
+      <End Role="attendanceExpected" EntitySet="attendanceExpecteds" />
+    </AssociationSet>
+    <AssociationSet Name="FK_provider_provider" Association="CCAttendanceModel.FK_provider_provider">
+      <End Role="provider" EntitySet="providers" />
+      <End Role="provider1" EntitySet="providers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_provider_refState" Association="CCAttendanceModel.FK_provider_refState">
+      <End Role="refState" EntitySet="refStates" />
+      <End Role="provider" EntitySet="providers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_provider_user" Association="CCAttendanceModel.FK_provider_user">
+      <End Role="user" EntitySet="users" />
+      <End Role="provider" EntitySet="providers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_providerUser_provider" Association="CCAttendanceModel.FK_providerUser_provider">
+      <End Role="provider" EntitySet="providers" />
+      <End Role="providerUser" EntitySet="providerUsers" />
+    </AssociationSet>
+  </EntityContainer>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+  <EntityType Name="attendance">
+    <Key>
+      <PropertyRef Name="AttendanceId" />
+    </Key>
+    <Property Name="AttendanceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProviderId" Type="Int32" Nullable="false" />
+    <Property Name="ChildId" Type="Int32" Nullable="false" />
+    <Property Name="SignInTime" Type="DateTime" Precision="3" />
+    <Property Name="SignInUserId" Type="Int32" />
+    <Property Name="SignOutTime" Type="DateTime" Precision="3" />
+    <Property Name="SignOutUserId" Type="Int32" />
+    <Property Name="Comment" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="IsLocked" Type="Boolean" Nullable="false" />
+    <Property Name="UserStatusId" Type="Int32" />
+    <Property Name="Absent" Type="Boolean" />
+    <Property Name="CreatedUserId" Type="Int32" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdateUserId" Type="Int32" Nullable="false" />
+    <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="TRTimestamp" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+    <NavigationProperty Name="ccChild" Relationship="CCAttendanceModel.FK_attendance_ccChild" FromRole="attendance" ToRole="ccChild" />
+    <NavigationProperty Name="attendanceStatus" Relationship="CCAttendanceModel.FK_attendanceStatus_attendance" FromRole="attendance" ToRole="attendanceStatu" />
+    <NavigationProperty Name="user" Relationship="CCAttendanceModel.FK_attendance_user" FromRole="attendance" ToRole="user" />
+    <NavigationProperty Name="provider" Relationship="CCAttendanceModel.FK_attendance_provider" FromRole="attendance" ToRole="provider" />
+  </EntityType>
+  <EntityType Name="attendanceExpected">
+    <Key>
+      <PropertyRef Name="AttendanceExpectedId" />
+    </Key>
+    <Property Name="AttendanceExpectedId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProviderId" Type="Int32" Nullable="false" />
+    <Property Name="GuardianId" Type="Int32" Nullable="false" />
+    <Property Name="ChildId" Type="Int32" Nullable="false" />
+    <Property Name="Monday" Type="Boolean" />
+    <Property Name="Tuesday" Type="Boolean" />
+    <Property Name="Wednesday" Type="Boolean" />
+    <Property Name="Friday" Type="Boolean" />
+    <Property Name="Saturday" Type="Boolean" />
+    <Property Name="Sunday" Type="Boolean" />
+    <Property Name="EffectiveDate" Type="DateTime" Precision="3" />
+    <Property Name="EndDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedUserId" Type="Int32" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdateUserId" Type="Int32" Nullable="false" />
+    <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="TRTimestamp" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+    <NavigationProperty Name="ccChild" Relationship="CCAttendanceModel.FK_attendanceExpected_ccChild" FromRole="attendanceExpected" ToRole="ccChild" />
+    <NavigationProperty Name="user" Relationship="CCAttendanceModel.FK_attendanceExpected_user" FromRole="attendanceExpected" ToRole="user" />
+    <NavigationProperty Name="provider" Relationship="CCAttendanceModel.FK_attendanceExpected_provider" FromRole="attendanceExpected" ToRole="provider" />
+  </EntityType>
+  <EntityType Name="attendanceStatu">
+    <Key>
+      <PropertyRef Name="AttendanceStatusId" />
+    </Key>
+    <Property Name="AttendanceStatusId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StatusId" Type="Int32" Nullable="false" />
+    <Property Name="AttendanceId" Type="Int32" Nullable="false" />
+    <Property Name="CreatedUserId" Type="Int32" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdateUserId" Type="Int32" Nullable="false" />
+    <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="TRTimestamp" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+    <NavigationProperty Name="attendance" Relationship="CCAttendanceModel.FK_attendanceStatus_attendance" FromRole="attendanceStatu" ToRole="attendance" />
+    <NavigationProperty Name="refStatu" Relationship="CCAttendanceModel.FK_attendanceStatus_refStatus" FromRole="attendanceStatu" ToRole="refStatu" />
+  </EntityType>
+  <EntityType Name="ccChild">
+    <Key>
+      <PropertyRef Name="ChildId" />
+    </Key>
+    <Property Name="ChildId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PrimaryGuardianId" Type="Int32" Nullable="false" />
+    <Property Name="FirstName" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="Surname" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="OtherNames" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="BirthDate" Type="DateTime" Precision="3" />
+    <Property Name="Comment" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedUserId" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdateUserId" Type="Int32" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="TRTimestamp" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+    <NavigationProperty Name="attendances" Relationship="CCAttendanceModel.FK_attendance_ccChild" FromRole="ccChild" ToRole="attendance" />
+    <NavigationProperty Name="attendanceExpecteds" Relationship="CCAttendanceModel.FK_attendanceExpected_ccChild" FromRole="ccChild" ToRole="attendanceExpected" />
+    <NavigationProperty Name="childGuardians" Relationship="CCAttendanceModel.FK_childGuardian_ccChild" FromRole="ccChild" ToRole="childGuardian" />
+    <NavigationProperty Name="user" Relationship="CCAttendanceModel.FK_ccChild_user" FromRole="ccChild" ToRole="user" />
+  </EntityType>
+  <EntityType Name="childGuardian">
+    <Key>
+      <PropertyRef Name="ChildGuardianId" />
+    </Key>
+    <Property Name="ChildGuardianId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GuardianId" Type="Int32" Nullable="false" />
+    <Property Name="ChildId" Type="Int32" Nullable="false" />
+    <Property Name="Relationship" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedUserId" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdateUserId" Type="Int32" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="TRTimestamp" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+    <NavigationProperty Name="ccChild" Relationship="CCAttendanceModel.FK_childGuardian_ccChild" FromRole="childGuardian" ToRole="ccChild" />
+    <NavigationProperty Name="user" Relationship="CCAttendanceModel.FK_childGuardian_user" FromRole="childGuardian" ToRole="user" />
+  </EntityType>
+  <EntityType Name="providerUser">
+    <Key>
+      <PropertyRef Name="ProviderUserId" />
+    </Key>
+    <Property Name="ProviderUserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProviderId" Type="Int32" />
+    <Property Name="UserId" Type="Int32" />
+    <Property Name="TrTimestamp" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="CreateUserId" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdateUserId" Type="Int32" Nullable="false" />
+    <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="providerUserRoles" Relationship="CCAttendanceModel.FK_providerUserRoles_providerUser" FromRole="providerUser" ToRole="providerUserRole1" />
+    <NavigationProperty Name="user" Relationship="CCAttendanceModel.FK_providerUser_user" FromRole="providerUser" ToRole="user" />
+    <NavigationProperty Name="user1" Relationship="CCAttendanceModel.FK_providerUser_user1" FromRole="providerUser" ToRole="user" />
+    <NavigationProperty Name="provider" Relationship="CCAttendanceModel.FK_providerUser_provider" FromRole="providerUser" ToRole="provider" />
+  </EntityType>
+  <EntityType Name="providerUserRole">
+    <Key>
+      <PropertyRef Name="ProviderUserRoleId" />
+    </Key>
+    <Property Name="ProviderUserRoleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleId" Type="Int32" Nullable="false" />
+    <Property Name="ProviderUserId" Type="Int32" Nullable="false" />
+    <Property Name="TrTimestamp" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="CreateUserId" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdateUserId" Type="Int32" Nullable="false" />
+    <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="providerUser" Relationship="CCAttendanceModel.FK_providerUserRoles_providerUser" FromRole="providerUserRole1" ToRole="providerUser" />
+    <NavigationProperty Name="refRole" Relationship="CCAttendanceModel.FK_providerUserRoles_role" FromRole="providerUserRole1" ToRole="refRole" />
+  </EntityType>
+  <EntityType Name="refRole">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="RoleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="TrTimestamp" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="CreateUserId" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdateUserId" Type="Int32" Nullable="false" />
+    <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="providerUserRoles" Relationship="CCAttendanceModel.FK_providerUserRoles_role" FromRole="refRole" ToRole="providerUserRole1" />
+  </EntityType>
+  <EntityType Name="refStatu">
+    <Key>
+      <PropertyRef Name="StatusId" />
+    </Key>
+    <Property Name="StatusId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StatusCode" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="TrTimestamp" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="CreateUserId" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdateUserId" Type="Int32" Nullable="false" />
+    <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="attendanceStatus" Relationship="CCAttendanceModel.FK_attendanceStatus_refStatus" FromRole="refStatu" ToRole="attendanceStatu" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="attendanceA">
+    <Key>
+      <PropertyRef Name="AttendanceId" />
+      <PropertyRef Name="ProviderId" />
+      <PropertyRef Name="ChildId" />
+      <PropertyRef Name="UserStatusId" />
+      <PropertyRef Name="CreatedUserId" />
+      <PropertyRef Name="CreatedDate" />
+      <PropertyRef Name="UpdateUserId" />
+      <PropertyRef Name="UpdateDate" />
+      <PropertyRef Name="AuditDate" />
+    </Key>
+    <Property Name="AttendanceId" Type="Int32" Nullable="false" />
+    <Property Name="ProviderId" Type="Int32" Nullable="false" />
+    <Property Name="ChildId" Type="Int32" Nullable="false" />
+    <Property Name="SignInTime" Type="DateTime" Precision="3" />
+    <Property Name="SignInUserId" Type="Int32" />
+    <Property Name="SignOutTime" Type="DateTime" Precision="3" />
+    <Property Name="SignOutUserId" Type="Int32" />
+    <Property Name="Comment" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="IsLocked" Type="Boolean" />
+    <Property Name="UserStatusId" Type="Int32" Nullable="false" />
+    <Property Name="Absent" Type="Boolean" />
+    <Property Name="CreatedUserId" Type="Int32" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdateUserId" Type="Int32" Nullable="false" />
+    <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AuditDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="TRTimestamp" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <Association Name="FK_attendance_ccChild">
+    <End Type="CCAttendanceModel.ccChild" Role="ccChild" Multiplicity="1" />
+    <End Type="CCAttendanceModel.attendance" Role="attendance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ccChild">
+        <PropertyRef Name="ChildId" />
+      </Principal>
+      <Dependent Role="attendance">
+        <PropertyRef Name="ChildId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_attendanceStatus_attendance">
+    <End Type="CCAttendanceModel.attendance" Role="attendance" Multiplicity="1" />
+    <End Type="CCAttendanceModel.attendanceStatu" Role="attendanceStatu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="attendance">
+        <PropertyRef Name="AttendanceId" />
+      </Principal>
+      <Dependent Role="attendanceStatu">
+        <PropertyRef Name="AttendanceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_attendanceExpected_ccChild">
+    <End Type="CCAttendanceModel.ccChild" Role="ccChild" Multiplicity="1" />
+    <End Type="CCAttendanceModel.attendanceExpected" Role="attendanceExpected" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ccChild">
+        <PropertyRef Name="ChildId" />
+      </Principal>
+      <Dependent Role="attendanceExpected">
+        <PropertyRef Name="ChildId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_attendanceStatus_refStatus">
+    <End Type="CCAttendanceModel.refStatu" Role="refStatu" Multiplicity="1" />
+    <End Type="CCAttendanceModel.attendanceStatu" Role="attendanceStatu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="refStatu">
+        <PropertyRef Name="StatusId" />
+      </Principal>
+      <Dependent Role="attendanceStatu">
+        <PropertyRef Name="StatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_childGuardian_ccChild">
+    <End Type="CCAttendanceModel.ccChild" Role="ccChild" Multiplicity="1" />
+    <End Type="CCAttendanceModel.childGuardian" Role="childGuardian" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ccChild">
+        <PropertyRef Name="ChildId" />
+      </Principal>
+      <Dependent Role="childGuardian">
+        <PropertyRef Name="ChildId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_providerUserRoles_providerUser">
+    <End Type="CCAttendanceModel.providerUser" Role="providerUser" Multiplicity="1" />
+    <End Type="CCAttendanceModel.providerUserRole" Role="providerUserRole1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="providerUser">
+        <PropertyRef Name="ProviderUserId" />
+      </Principal>
+      <Dependent Role="providerUserRole1">
+        <PropertyRef Name="ProviderUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_providerUserRoles_role">
+    <End Type="CCAttendanceModel.refRole" Role="refRole" Multiplicity="1" />
+    <End Type="CCAttendanceModel.providerUserRole" Role="providerUserRole1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="refRole">
+        <PropertyRef Name="RoleId" />
+      </Principal>
+      <Dependent Role="providerUserRole1">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="sp_helpdiagramdefinition1_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams1_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+  <EntityType Name="refState">
+    <Key>
+      <PropertyRef Name="StateId" />
+    </Key>
+    <Property Name="StateId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StateCode" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="TrTimestamp" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="CreateUserId" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdateUserId" Type="Int32" Nullable="false" />
+    <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="users" Relationship="CCAttendanceModel.FK_user_refState" FromRole="refState" ToRole="user" />
+    <NavigationProperty Name="providers" Relationship="CCAttendanceModel.FK_provider_refState" FromRole="refState" ToRole="provider" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Surname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TRTimestamp" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="EmailAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="StatusCd" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="LogonId" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Comments" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Title" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="SecondName" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="OtherNames" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="BirthDate" Type="DateTime" Precision="3" />
+    <Property Name="AddressLine1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AddressLine2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AddressLine3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Locality" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="StateId" Type="Int32" />
+    <Property Name="Postcode" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="CountryCode" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="PhonePrefix" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="MobileNumber" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="ValidFromDate" Type="DateTime" Precision="3" />
+    <Property Name="ValidToDate" Type="DateTime" Precision="3" />
+    <Property Name="CreateUserId" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdateUserId" Type="Int32" Nullable="false" />
+    <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="attendances" Relationship="CCAttendanceModel.FK_attendance_user" FromRole="user" ToRole="attendance" />
+    <NavigationProperty Name="attendanceExpecteds" Relationship="CCAttendanceModel.FK_attendanceExpected_user" FromRole="user" ToRole="attendanceExpected" />
+    <NavigationProperty Name="ccChilds" Relationship="CCAttendanceModel.FK_ccChild_user" FromRole="user" ToRole="ccChild" />
+    <NavigationProperty Name="childGuardians" Relationship="CCAttendanceModel.FK_childGuardian_user" FromRole="user" ToRole="childGuardian" />
+    <NavigationProperty Name="providerUsers" Relationship="CCAttendanceModel.FK_providerUser_user" FromRole="user" ToRole="providerUser" />
+    <NavigationProperty Name="providerUsers1" Relationship="CCAttendanceModel.FK_providerUser_user1" FromRole="user" ToRole="providerUser" />
+    <NavigationProperty Name="refState" Relationship="CCAttendanceModel.FK_user_refState" FromRole="user" ToRole="refState" />
+    <NavigationProperty Name="providers" Relationship="CCAttendanceModel.FK_provider_user" FromRole="user" ToRole="provider" />
+  </EntityType>
+  <Association Name="FK_attendance_user">
+    <End Type="CCAttendanceModel.user" Role="user" Multiplicity="1" />
+    <End Type="CCAttendanceModel.attendance" Role="attendance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="attendance">
+        <PropertyRef Name="CreatedUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_attendanceExpected_user">
+    <End Type="CCAttendanceModel.user" Role="user" Multiplicity="1" />
+    <End Type="CCAttendanceModel.attendanceExpected" Role="attendanceExpected" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="attendanceExpected">
+        <PropertyRef Name="GuardianId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ccChild_user">
+    <End Type="CCAttendanceModel.user" Role="user" Multiplicity="1" />
+    <End Type="CCAttendanceModel.ccChild" Role="ccChild" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="ccChild">
+        <PropertyRef Name="PrimaryGuardianId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_childGuardian_user">
+    <End Type="CCAttendanceModel.user" Role="user" Multiplicity="1" />
+    <End Type="CCAttendanceModel.childGuardian" Role="childGuardian" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="childGuardian">
+        <PropertyRef Name="GuardianId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_providerUser_user">
+    <End Type="CCAttendanceModel.user" Role="user" Multiplicity="0..1" />
+    <End Type="CCAttendanceModel.providerUser" Role="providerUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="providerUser">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_providerUser_user1">
+    <End Type="CCAttendanceModel.user" Role="user" Multiplicity="0..1" />
+    <End Type="CCAttendanceModel.providerUser" Role="providerUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="providerUser">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_user_refState">
+    <End Type="CCAttendanceModel.refState" Role="refState" Multiplicity="0..1" />
+    <End Type="CCAttendanceModel.user" Role="user" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="refState">
+        <PropertyRef Name="StateId" />
+      </Principal>
+      <Dependent Role="user">
+        <PropertyRef Name="StateId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="provider">
+    <Key>
+      <PropertyRef Name="ProviderId" />
+    </Key>
+    <Property Name="ProviderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="PrimaryContactUserId" Type="Int32" />
+    <Property Name="HeadProviderId" Type="Int32" />
+    <Property Name="IsHub" Type="Boolean" Nullable="false" />
+    <Property Name="UpdateUserId" Type="Int32" Nullable="false" />
+    <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="TRTimestamp" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="AddressLine1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="AddressLine2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Locality" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="StateId" Type="Int32" />
+    <Property Name="Postcode" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="CountryCode" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="PhonePrefix" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedUserId" Type="Int32" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="attendances" Relationship="CCAttendanceModel.FK_attendance_provider" FromRole="provider" ToRole="attendance" />
+    <NavigationProperty Name="attendanceExpecteds" Relationship="CCAttendanceModel.FK_attendanceExpected_provider" FromRole="provider" ToRole="attendanceExpected" />
+    <NavigationProperty Name="provider1" Relationship="CCAttendanceModel.FK_provider_provider" FromRole="provider" ToRole="provider1" />
+    <NavigationProperty Name="provider2" Relationship="CCAttendanceModel.FK_provider_provider" FromRole="provider1" ToRole="provider" />
+    <NavigationProperty Name="refState" Relationship="CCAttendanceModel.FK_provider_refState" FromRole="provider" ToRole="refState" />
+    <NavigationProperty Name="user" Relationship="CCAttendanceModel.FK_provider_user" FromRole="provider" ToRole="user" />
+    <NavigationProperty Name="providerUsers" Relationship="CCAttendanceModel.FK_providerUser_provider" FromRole="provider" ToRole="providerUser" />
+  </EntityType>
+  <Association Name="FK_attendance_provider">
+    <End Type="CCAttendanceModel.provider" Role="provider" Multiplicity="1" />
+    <End Type="CCAttendanceModel.attendance" Role="attendance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="provider">
+        <PropertyRef Name="ProviderId" />
+      </Principal>
+      <Dependent Role="attendance">
+        <PropertyRef Name="ProviderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_attendanceExpected_provider">
+    <End Type="CCAttendanceModel.provider" Role="provider" Multiplicity="1" />
+    <End Type="CCAttendanceModel.attendanceExpected" Role="attendanceExpected" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="provider">
+        <PropertyRef Name="ProviderId" />
+      </Principal>
+      <Dependent Role="attendanceExpected">
+        <PropertyRef Name="ProviderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_provider_provider">
+    <End Type="CCAttendanceModel.provider" Role="provider" Multiplicity="0..1" />
+    <End Type="CCAttendanceModel.provider" Role="provider1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="provider">
+        <PropertyRef Name="ProviderId" />
+      </Principal>
+      <Dependent Role="provider1">
+        <PropertyRef Name="HeadProviderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_provider_refState">
+    <End Type="CCAttendanceModel.refState" Role="refState" Multiplicity="0..1" />
+    <End Type="CCAttendanceModel.provider" Role="provider" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="refState">
+        <PropertyRef Name="StateId" />
+      </Principal>
+      <Dependent Role="provider">
+        <PropertyRef Name="StateId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_provider_user">
+    <End Type="CCAttendanceModel.user" Role="user" Multiplicity="0..1" />
+    <End Type="CCAttendanceModel.provider" Role="provider" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="provider">
+        <PropertyRef Name="PrimaryContactUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_providerUser_provider">
+    <End Type="CCAttendanceModel.provider" Role="provider" Multiplicity="0..1" />
+    <End Type="CCAttendanceModel.providerUser" Role="providerUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="provider">
+        <PropertyRef Name="ProviderId" />
+      </Principal>
+      <Dependent Role="providerUser">
+        <PropertyRef Name="ProviderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
