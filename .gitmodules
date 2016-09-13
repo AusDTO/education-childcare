@@ -1,4 +1,0 @@
-[submodule "gov-au-ui-kit"]
-	path = gov-au-ui-kit
-	url = https://github.com/AusDTO/gov-au-ui-kit
-    ignore = dirty
