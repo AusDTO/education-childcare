@@ -31,9 +31,12 @@ namespace CC1.Models
         public int UpdateUserId { get; set; }
         public System.DateTime UpdateDate { get; set; }
         public byte[] TRTimestamp { get; set; }
+        public string Room { get; set; }
     
         public virtual ccChild ccChild { get; set; }
-        public virtual user user { get; set; }
         public virtual provider provider { get; set; }
+        public virtual user user { get; set; }
+        public virtual user user1 { get; set; }
+        public virtual user user2 { get; set; }
     }
 }

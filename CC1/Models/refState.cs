@@ -17,8 +17,8 @@ namespace CC1.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public refState()
         {
-            this.users = new HashSet<user>();
             this.providers = new HashSet<provider>();
+            this.users = new HashSet<user>();
         }
     
         public int StateId { get; set; }
@@ -31,8 +31,10 @@ namespace CC1.Models
         public System.DateTime UpdateDate { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<user> users { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<provider> providers { get; set; }
+        public virtual user user { get; set; }
+        public virtual user user1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<user> users { get; set; }
     }
 }

@@ -67,4 +67,7 @@
     <None Include="Static Data\refRole.sql" />
     <None Include="Static Data\refStatus.sql" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Static Data\refState.sql" />
+  </ItemGroup>
 </Project>

@@ -21,7 +21,7 @@ namespace CC1.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("CCAttendanceSecurity", throwIfV1Schema: false)
         {
         }
 

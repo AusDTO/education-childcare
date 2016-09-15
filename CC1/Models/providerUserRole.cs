@@ -24,6 +24,8 @@ namespace CC1.Models
         public System.DateTime UpdateDate { get; set; }
     
         public virtual providerUser providerUser { get; set; }
+        public virtual user user { get; set; }
+        public virtual user user1 { get; set; }
         public virtual refRole refRole { get; set; }
     }
 }

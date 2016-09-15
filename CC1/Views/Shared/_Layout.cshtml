@@ -1,14 +1,34 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="en" class="no-js">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <title>@ViewBag.Title - Childcare Attendance</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
 <body>
+    <nav class="skip-to">
+        <a href="#content">Skip to main content</a>
+        <a href="#nav">Skip to section navigation</a>
+    </nav>
+    <header role="banner">
+        <section class="govau--header">
+            <div class="wrapper">
+                <div class="govau--logo">
+                    <a href="index.html" class="logo">Child care attendance trial</a> <span class="badge--default">beta</span>
+                </div>
+            </div>
+        </section>
+    </header>
+
+
+
+
     @Html.Partial("_NavBar")
     <div class="container body-content">
         @RenderBody()

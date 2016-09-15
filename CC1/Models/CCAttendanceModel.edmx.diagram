@@ -5,40 +5,59 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="17acb6bcd5e840998d599812e26b0ead" Name="Diagram1" ZoomLevel="95">
-        <EntityTypeShape EntityType="CCAttendanceModel.attendance" Width="1.5" PointX="8.25" PointY="15" />
-        <EntityTypeShape EntityType="CCAttendanceModel.attendanceExpected" Width="1.5" PointX="5.25" PointY="16" />
-        <EntityTypeShape EntityType="CCAttendanceModel.attendanceStatu" Width="1.5" PointX="10.5" PointY="16" />
-        <EntityTypeShape EntityType="CCAttendanceModel.ccChild" Width="1.5" PointX="3" PointY="25.375" />
-        <EntityTypeShape EntityType="CCAttendanceModel.childGuardian" Width="1.5" PointX="8.25" PointY="20.625" />
-        <EntityTypeShape EntityType="CCAttendanceModel.providerUser" Width="1.5" PointX="5.25" PointY="10.5" />
-        <EntityTypeShape EntityType="CCAttendanceModel.providerUserRole" Width="2" PointX="7.5" PointY="10.625" />
-        <EntityTypeShape EntityType="CCAttendanceModel.refRole" Width="1.5" PointX="5.25" PointY="6.75" />
-        <EntityTypeShape EntityType="CCAttendanceModel.refStatu" Width="1.5" PointX="8.25" PointY="7.125" />
-        <EntityTypeShape EntityType="CCAttendanceModel.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" />
-        <EntityTypeShape EntityType="CCAttendanceModel.attendanceA" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="CCAttendanceModel.attendance" Width="2.375" PointX="7.5" PointY="25.25" />
+        <EntityTypeShape EntityType="CCAttendanceModel.attendanceExpected" Width="2.375" PointX="10.5" PointY="25.125" />
+        <EntityTypeShape EntityType="CCAttendanceModel.attendanceStatu" Width="2.375" PointX="9.75" PointY="19.625" />
+        <EntityTypeShape EntityType="CCAttendanceModel.ccChild" Width="2.375" PointX="3" PointY="38.75" />
+        <EntityTypeShape EntityType="CCAttendanceModel.childGuardian" Width="2.375" PointX="5.25" PointY="27" />
+        <EntityTypeShape EntityType="CCAttendanceModel.provider" Width="2.375" PointX="5.25" PointY="18.875" />
+        <EntityTypeShape EntityType="CCAttendanceModel.providerUser" Width="2.375" PointX="7.5" PointY="16.875" />
+        <EntityTypeShape EntityType="CCAttendanceModel.providerUserRole" Width="2.375" PointX="9.75" PointY="15.375" />
+        <EntityTypeShape EntityType="CCAttendanceModel.refRole" Width="2.375" PointX="3" PointY="24.875" />
+        <EntityTypeShape EntityType="CCAttendanceModel.refState" Width="2.375" PointX="3" PointY="28.75" />
+        <EntityTypeShape EntityType="CCAttendanceModel.refStatu" Width="2.375" PointX="7.5" PointY="12.875" />
+        <EntityTypeShape EntityType="CCAttendanceModel.sysdiagram" Width="2.375" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="CCAttendanceModel.user" Width="2.375" PointX="0.75" PointY="12.25" />
+        <EntityTypeShape EntityType="CCAttendanceModel.attendanceA" Width="2.375" PointX="2.75" PointY="0.75" />
         <AssociationConnector Association="CCAttendanceModel.FK_attendance_ccChild" />
+        <AssociationConnector Association="CCAttendanceModel.FK_attendance_provider" />
+        <AssociationConnector Association="CCAttendanceModel.FK_attendance_user" />
+        <AssociationConnector Association="CCAttendanceModel.FK_attendance_user_UpdateUserId" />
         <AssociationConnector Association="CCAttendanceModel.FK_attendanceStatus_attendance" />
         <AssociationConnector Association="CCAttendanceModel.FK_attendanceExpected_ccChild" />
-        <AssociationConnector Association="CCAttendanceModel.FK_attendanceStatus_refStatus" />
-        <AssociationConnector Association="CCAttendanceModel.FK_childGuardian_ccChild" />
-        <AssociationConnector Association="CCAttendanceModel.FK_providerUserRoles_providerUser" />
-        <AssociationConnector Association="CCAttendanceModel.FK_providerUserRoles_role" />
-        <EntityTypeShape EntityType="CCAttendanceModel.refState" Width="1.5" PointX="0.75" PointY="10.875" />
-        <EntityTypeShape EntityType="CCAttendanceModel.user" Width="1.5" PointX="3" PointY="15.25" />
-        <AssociationConnector Association="CCAttendanceModel.FK_attendance_user" />
-        <AssociationConnector Association="CCAttendanceModel.FK_attendanceExpected_user" />
-        <AssociationConnector Association="CCAttendanceModel.FK_ccChild_user" />
-        <AssociationConnector Association="CCAttendanceModel.FK_childGuardian_user" />
-        <AssociationConnector Association="CCAttendanceModel.FK_providerUser_user" />
-        <AssociationConnector Association="CCAttendanceModel.FK_providerUser_user1" />
-        <AssociationConnector Association="CCAttendanceModel.FK_user_refState" />
-        <EntityTypeShape EntityType="CCAttendanceModel.provider" Width="1.5" PointX="11.25" PointY="9.125" />
-        <AssociationConnector Association="CCAttendanceModel.FK_attendance_provider" />
         <AssociationConnector Association="CCAttendanceModel.FK_attendanceExpected_provider" />
+        <AssociationConnector Association="CCAttendanceModel.FK_attendanceExpected_user_CreatedUserId" />
+        <AssociationConnector Association="CCAttendanceModel.FK_attendanceExpected_user_GuardianUserId" />
+        <AssociationConnector Association="CCAttendanceModel.FK_attendanceExpected_user_UpdateUserId" />
+        <AssociationConnector Association="CCAttendanceModel.FK_attendanceStatus_refStatus" />
+        <AssociationConnector Association="CCAttendanceModel.FK_attendanceStatus_user_CreatedUserId" />
+        <AssociationConnector Association="CCAttendanceModel.FK_attendanceStatus_user_UpdateUserId" />
+        <AssociationConnector Association="CCAttendanceModel.FK_ccChild_user" />
+        <AssociationConnector Association="CCAttendanceModel.FK_ccChild_user1" />
+        <AssociationConnector Association="CCAttendanceModel.FK_ccChild_user2" />
+        <AssociationConnector Association="CCAttendanceModel.FK_childGuardian_ccChild" />
+        <AssociationConnector Association="CCAttendanceModel.FK_childGuardian_user" />
+        <AssociationConnector Association="CCAttendanceModel.FK_childGuardian_user1" />
+        <AssociationConnector Association="CCAttendanceModel.FK_childGuardian_user2" />
         <AssociationConnector Association="CCAttendanceModel.FK_provider_provider" />
         <AssociationConnector Association="CCAttendanceModel.FK_provider_refState" />
-        <AssociationConnector Association="CCAttendanceModel.FK_provider_user" />
+        <AssociationConnector Association="CCAttendanceModel.FK_provider_User_CreatedUserId" />
+        <AssociationConnector Association="CCAttendanceModel.FK_provider_user_PrimaryContactUserId" />
+        <AssociationConnector Association="CCAttendanceModel.FK_provider_user_UpdateUserId" />
         <AssociationConnector Association="CCAttendanceModel.FK_providerUser_provider" />
+        <AssociationConnector Association="CCAttendanceModel.FK_providerUser_user" />
+        <AssociationConnector Association="CCAttendanceModel.FK_providerUser_user_CreateUserId" />
+        <AssociationConnector Association="CCAttendanceModel.FK_providerUser_user_UpdateUserId" />
+        <AssociationConnector Association="CCAttendanceModel.FK_providerUser_user_UserId" />
+        <AssociationConnector Association="CCAttendanceModel.FK_providerUserRoles_providerUser" />
+        <AssociationConnector Association="CCAttendanceModel.FK_providerUserRole_user" />
+        <AssociationConnector Association="CCAttendanceModel.FK_providerUserRole_user_UpdateUserId" />
+        <AssociationConnector Association="CCAttendanceModel.FK_providerUserRoles_role" />
+        <AssociationConnector Association="CCAttendanceModel.FK_refRole_user_CreateUserId" />
+        <AssociationConnector Association="CCAttendanceModel.FK_refRole_user_UpdateUserId" />
+        <AssociationConnector Association="CCAttendanceModel.FK_refState_user" />
+        <AssociationConnector Association="CCAttendanceModel.FK_refState_user1" />
+        <AssociationConnector Association="CCAttendanceModel.FK_user_refState" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

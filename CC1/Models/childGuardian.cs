@@ -26,5 +26,7 @@ namespace CC1.Models
     
         public virtual ccChild ccChild { get; set; }
         public virtual user user { get; set; }
+        public virtual user user1 { get; set; }
+        public virtual user user2 { get; set; }
     }
 }
