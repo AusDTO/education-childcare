@@ -29,10 +29,12 @@ namespace CC1.Models
         public int UpdateUserId { get; set; }
         public System.DateTime UpdateDate { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<providerUserRole> providerUserRoles { get; set; }
+        public virtual provider provider { get; set; }
         public virtual user user { get; set; }
         public virtual user user1 { get; set; }
-        public virtual provider provider { get; set; }
+        public virtual user user2 { get; set; }
+        public virtual user user3 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<providerUserRole> providerUserRoles { get; set; }
     }
 }

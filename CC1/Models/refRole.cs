@@ -31,5 +31,7 @@ namespace CC1.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<providerUserRole> providerUserRoles { get; set; }
+        public virtual user user { get; set; }
+        public virtual user user1 { get; set; }
     }
 }
