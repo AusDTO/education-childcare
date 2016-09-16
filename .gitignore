@@ -1,8 +1,0 @@
-CC1.Database/bin/Debug/CC1.Database.dacpac
-*.suo
-CC1.Database/bin/Debug/CC1.Database.dacpac
-CC1.Database/bin/Debug/CC1.Database.dll
-CC1.Database/bin/Debug/CC1.Database.dll
-*.pdb
-CC1/obj/Debug/edmxResourcesToEmbed/Models/CCAttendanceModel.csdl
-CC1/Web.config
