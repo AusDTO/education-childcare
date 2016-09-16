@@ -52,6 +52,8 @@ namespace CC1.Models
         public virtual provider provider2 { get; set; }
         public virtual refState refState { get; set; }
         public virtual user user { get; set; }
+        public virtual user user1 { get; set; }
+        public virtual user user2 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<providerUser> providerUsers { get; set; }
     }

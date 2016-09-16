@@ -25,5 +25,7 @@ namespace CC1.Models
     
         public virtual attendance attendance { get; set; }
         public virtual refStatu refStatu { get; set; }
+        public virtual user user { get; set; }
+        public virtual user user1 { get; set; }
     }
 }

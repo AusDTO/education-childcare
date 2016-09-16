@@ -288,6 +288,18 @@ warning 6002: The table/view 'CCAttendance.dbo.attendanceA' does not have a prim
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_attendance_user_UpdateUserId">
+    <End Role="user" Type="Self.user" Multiplicity="1" />
+    <End Role="attendance" Type="Self.attendance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="attendance">
+        <PropertyRef Name="UpdateUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_attendanceExpected_ccChild">
     <End Role="ccChild" Type="Self.ccChild" Multiplicity="1" />
     <End Role="attendanceExpected" Type="Self.attendanceExpected" Multiplicity="*" />
@@ -312,7 +324,19 @@ warning 6002: The table/view 'CCAttendance.dbo.attendanceA' does not have a prim
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_attendanceExpected_user">
+  <Association Name="FK_attendanceExpected_user_CreatedUserId">
+    <End Role="user" Type="Self.user" Multiplicity="1" />
+    <End Role="attendanceExpected" Type="Self.attendanceExpected" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="attendanceExpected">
+        <PropertyRef Name="CreatedUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_attendanceExpected_user_GuardianUserId">
     <End Role="user" Type="Self.user" Multiplicity="1" />
     <End Role="attendanceExpected" Type="Self.attendanceExpected" Multiplicity="*" />
     <ReferentialConstraint>
@@ -321,6 +345,18 @@ warning 6002: The table/view 'CCAttendance.dbo.attendanceA' does not have a prim
       </Principal>
       <Dependent Role="attendanceExpected">
         <PropertyRef Name="GuardianId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_attendanceExpected_user_UpdateUserId">
+    <End Role="user" Type="Self.user" Multiplicity="1" />
+    <End Role="attendanceExpected" Type="Self.attendanceExpected" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="attendanceExpected">
+        <PropertyRef Name="UpdateUserId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -348,6 +384,30 @@ warning 6002: The table/view 'CCAttendance.dbo.attendanceA' does not have a prim
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_attendanceStatus_user_CreatedUserId">
+    <End Role="user" Type="Self.user" Multiplicity="1" />
+    <End Role="attendanceStatus" Type="Self.attendanceStatus" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="attendanceStatus">
+        <PropertyRef Name="CreatedUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_attendanceStatus_user_UpdateUserId">
+    <End Role="user" Type="Self.user" Multiplicity="1" />
+    <End Role="attendanceStatus" Type="Self.attendanceStatus" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="attendanceStatus">
+        <PropertyRef Name="UpdateUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_ccChild_user">
     <End Role="user" Type="Self.user" Multiplicity="1" />
     <End Role="ccChild" Type="Self.ccChild" Multiplicity="*" />
@@ -357,6 +417,30 @@ warning 6002: The table/view 'CCAttendance.dbo.attendanceA' does not have a prim
       </Principal>
       <Dependent Role="ccChild">
         <PropertyRef Name="PrimaryGuardianId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ccChild_user1">
+    <End Role="user" Type="Self.user" Multiplicity="0..1" />
+    <End Role="ccChild" Type="Self.ccChild" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="ccChild">
+        <PropertyRef Name="CreatedUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ccChild_user2">
+    <End Role="user" Type="Self.user" Multiplicity="0..1" />
+    <End Role="ccChild" Type="Self.ccChild" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="ccChild">
+        <PropertyRef Name="UpdateUserId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -384,6 +468,30 @@ warning 6002: The table/view 'CCAttendance.dbo.attendanceA' does not have a prim
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_childGuardian_user1">
+    <End Role="user" Type="Self.user" Multiplicity="0..1" />
+    <End Role="childGuardian" Type="Self.childGuardian" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="childGuardian">
+        <PropertyRef Name="UpdateUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_childGuardian_user2">
+    <End Role="user" Type="Self.user" Multiplicity="0..1" />
+    <End Role="childGuardian" Type="Self.childGuardian" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="childGuardian">
+        <PropertyRef Name="UpdateUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_provider_provider">
     <End Role="provider" Type="Self.provider" Multiplicity="0..1" />
     <End Role="provider1" Type="Self.provider" Multiplicity="*" />
@@ -408,7 +516,19 @@ warning 6002: The table/view 'CCAttendance.dbo.attendanceA' does not have a prim
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_provider_user">
+  <Association Name="FK_provider_User_CreatedUserId">
+    <End Role="user" Type="Self.user" Multiplicity="1" />
+    <End Role="provider" Type="Self.provider" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="provider">
+        <PropertyRef Name="CreatedUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_provider_user_PrimaryContactUserId">
     <End Role="user" Type="Self.user" Multiplicity="0..1" />
     <End Role="provider" Type="Self.provider" Multiplicity="*" />
     <ReferentialConstraint>
@@ -417,6 +537,18 @@ warning 6002: The table/view 'CCAttendance.dbo.attendanceA' does not have a prim
       </Principal>
       <Dependent Role="provider">
         <PropertyRef Name="PrimaryContactUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_provider_user_UpdateUserId">
+    <End Role="user" Type="Self.user" Multiplicity="1" />
+    <End Role="provider" Type="Self.provider" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="provider">
+        <PropertyRef Name="UpdateUserId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -444,7 +576,31 @@ warning 6002: The table/view 'CCAttendance.dbo.attendanceA' does not have a prim
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_providerUser_user1">
+  <Association Name="FK_providerUser_user_CreateUserId">
+    <End Role="user" Type="Self.user" Multiplicity="1" />
+    <End Role="providerUser" Type="Self.providerUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="providerUser">
+        <PropertyRef Name="CreateUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_providerUser_user_UpdateUserId">
+    <End Role="user" Type="Self.user" Multiplicity="1" />
+    <End Role="providerUser" Type="Self.providerUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="providerUser">
+        <PropertyRef Name="UpdateUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_providerUser_user_UserId">
     <End Role="user" Type="Self.user" Multiplicity="0..1" />
     <End Role="providerUser" Type="Self.providerUser" Multiplicity="*" />
     <ReferentialConstraint>
@@ -453,6 +609,30 @@ warning 6002: The table/view 'CCAttendance.dbo.attendanceA' does not have a prim
       </Principal>
       <Dependent Role="providerUser">
         <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_providerUserRole_user">
+    <End Role="user" Type="Self.user" Multiplicity="1" />
+    <End Role="providerUserRole" Type="Self.providerUserRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="providerUserRole">
+        <PropertyRef Name="CreateUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_providerUserRole_user_UpdateUserId">
+    <End Role="user" Type="Self.user" Multiplicity="1" />
+    <End Role="providerUserRole" Type="Self.providerUserRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="providerUserRole">
+        <PropertyRef Name="UpdateUserId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -480,6 +660,54 @@ warning 6002: The table/view 'CCAttendance.dbo.attendanceA' does not have a prim
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_refRole_user_CreateUserId">
+    <End Role="user" Type="Self.user" Multiplicity="1" />
+    <End Role="refRole" Type="Self.refRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="refRole">
+        <PropertyRef Name="CreateUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_refRole_user_UpdateUserId">
+    <End Role="user" Type="Self.user" Multiplicity="1" />
+    <End Role="refRole" Type="Self.refRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="refRole">
+        <PropertyRef Name="UpdateUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_refState_user">
+    <End Role="user" Type="Self.user" Multiplicity="1" />
+    <End Role="refState" Type="Self.refState" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="refState">
+        <PropertyRef Name="CreateUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_refState_user1">
+    <End Role="user" Type="Self.user" Multiplicity="1" />
+    <End Role="refState" Type="Self.refState" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="refState">
+        <PropertyRef Name="UpdateUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_user_refState">
     <End Role="refState" Type="Self.refState" Multiplicity="0..1" />
     <End Role="user" Type="Self.user" Multiplicity="*" />
@@ -492,37 +720,6 @@ warning 6002: The table/view 'CCAttendance.dbo.attendanceA' does not have a prim
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
-  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-    <Parameter Name="owner_id" Type="int" Mode="In" />
-    <Parameter Name="version" Type="int" Mode="In" />
-    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
-  </Function>
-  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-    <Parameter Name="owner_id" Type="int" Mode="In" />
-    <Parameter Name="version" Type="int" Mode="In" />
-    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
-  </Function>
-  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-    <Parameter Name="owner_id" Type="int" Mode="In" />
-  </Function>
-  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-    <Parameter Name="owner_id" Type="int" Mode="In" />
-  </Function>
-  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-    <Parameter Name="owner_id" Type="int" Mode="In" />
-  </Function>
-  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-    <Parameter Name="owner_id" Type="int" Mode="In" />
-    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
-  </Function>
-  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <EntityContainer Name="CCAttendanceModelStoreContainer">
     <EntitySet Name="attendance" EntityType="Self.attendance" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="attendanceExpected" EntityType="Self.attendanceExpected" Schema="dbo" store:Type="Tables" />
@@ -570,6 +767,10 @@ warning 6002: The table/view 'CCAttendance.dbo.attendanceA' does not have a prim
       <End Role="user" EntitySet="user" />
       <End Role="attendance" EntitySet="attendance" />
     </AssociationSet>
+    <AssociationSet Name="FK_attendance_user_UpdateUserId" Association="Self.FK_attendance_user_UpdateUserId">
+      <End Role="user" EntitySet="user" />
+      <End Role="attendance" EntitySet="attendance" />
+    </AssociationSet>
     <AssociationSet Name="FK_attendanceExpected_ccChild" Association="Self.FK_attendanceExpected_ccChild">
       <End Role="ccChild" EntitySet="ccChild" />
       <End Role="attendanceExpected" EntitySet="attendanceExpected" />
@@ -578,7 +779,15 @@ warning 6002: The table/view 'CCAttendance.dbo.attendanceA' does not have a prim
       <End Role="provider" EntitySet="provider" />
       <End Role="attendanceExpected" EntitySet="attendanceExpected" />
     </AssociationSet>
-    <AssociationSet Name="FK_attendanceExpected_user" Association="Self.FK_attendanceExpected_user">
+    <AssociationSet Name="FK_attendanceExpected_user_CreatedUserId" Association="Self.FK_attendanceExpected_user_CreatedUserId">
+      <End Role="user" EntitySet="user" />
+      <End Role="attendanceExpected" EntitySet="attendanceExpected" />
+    </AssociationSet>
+    <AssociationSet Name="FK_attendanceExpected_user_GuardianUserId" Association="Self.FK_attendanceExpected_user_GuardianUserId">
+      <End Role="user" EntitySet="user" />
+      <End Role="attendanceExpected" EntitySet="attendanceExpected" />
+    </AssociationSet>
+    <AssociationSet Name="FK_attendanceExpected_user_UpdateUserId" Association="Self.FK_attendanceExpected_user_UpdateUserId">
       <End Role="user" EntitySet="user" />
       <End Role="attendanceExpected" EntitySet="attendanceExpected" />
     </AssociationSet>
@@ -590,7 +799,23 @@ warning 6002: The table/view 'CCAttendance.dbo.attendanceA' does not have a prim
       <End Role="refStatus" EntitySet="refStatus" />
       <End Role="attendanceStatus" EntitySet="attendanceStatus" />
     </AssociationSet>
+    <AssociationSet Name="FK_attendanceStatus_user_CreatedUserId" Association="Self.FK_attendanceStatus_user_CreatedUserId">
+      <End Role="user" EntitySet="user" />
+      <End Role="attendanceStatus" EntitySet="attendanceStatus" />
+    </AssociationSet>
+    <AssociationSet Name="FK_attendanceStatus_user_UpdateUserId" Association="Self.FK_attendanceStatus_user_UpdateUserId">
+      <End Role="user" EntitySet="user" />
+      <End Role="attendanceStatus" EntitySet="attendanceStatus" />
+    </AssociationSet>
     <AssociationSet Name="FK_ccChild_user" Association="Self.FK_ccChild_user">
+      <End Role="user" EntitySet="user" />
+      <End Role="ccChild" EntitySet="ccChild" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ccChild_user1" Association="Self.FK_ccChild_user1">
+      <End Role="user" EntitySet="user" />
+      <End Role="ccChild" EntitySet="ccChild" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ccChild_user2" Association="Self.FK_ccChild_user2">
       <End Role="user" EntitySet="user" />
       <End Role="ccChild" EntitySet="ccChild" />
     </AssociationSet>
@@ -602,6 +827,14 @@ warning 6002: The table/view 'CCAttendance.dbo.attendanceA' does not have a prim
       <End Role="user" EntitySet="user" />
       <End Role="childGuardian" EntitySet="childGuardian" />
     </AssociationSet>
+    <AssociationSet Name="FK_childGuardian_user1" Association="Self.FK_childGuardian_user1">
+      <End Role="user" EntitySet="user" />
+      <End Role="childGuardian" EntitySet="childGuardian" />
+    </AssociationSet>
+    <AssociationSet Name="FK_childGuardian_user2" Association="Self.FK_childGuardian_user2">
+      <End Role="user" EntitySet="user" />
+      <End Role="childGuardian" EntitySet="childGuardian" />
+    </AssociationSet>
     <AssociationSet Name="FK_provider_provider" Association="Self.FK_provider_provider">
       <End Role="provider" EntitySet="provider" />
       <End Role="provider1" EntitySet="provider" />
@@ -610,7 +843,15 @@ warning 6002: The table/view 'CCAttendance.dbo.attendanceA' does not have a prim
       <End Role="refState" EntitySet="refState" />
       <End Role="provider" EntitySet="provider" />
     </AssociationSet>
-    <AssociationSet Name="FK_provider_user" Association="Self.FK_provider_user">
+    <AssociationSet Name="FK_provider_User_CreatedUserId" Association="Self.FK_provider_User_CreatedUserId">
+      <End Role="user" EntitySet="user" />
+      <End Role="provider" EntitySet="provider" />
+    </AssociationSet>
+    <AssociationSet Name="FK_provider_user_PrimaryContactUserId" Association="Self.FK_provider_user_PrimaryContactUserId">
+      <End Role="user" EntitySet="user" />
+      <End Role="provider" EntitySet="provider" />
+    </AssociationSet>
+    <AssociationSet Name="FK_provider_user_UpdateUserId" Association="Self.FK_provider_user_UpdateUserId">
       <End Role="user" EntitySet="user" />
       <End Role="provider" EntitySet="provider" />
     </AssociationSet>
@@ -622,9 +863,25 @@ warning 6002: The table/view 'CCAttendance.dbo.attendanceA' does not have a prim
       <End Role="user" EntitySet="user" />
       <End Role="providerUser" EntitySet="providerUser" />
     </AssociationSet>
-    <AssociationSet Name="FK_providerUser_user1" Association="Self.FK_providerUser_user1">
+    <AssociationSet Name="FK_providerUser_user_CreateUserId" Association="Self.FK_providerUser_user_CreateUserId">
       <End Role="user" EntitySet="user" />
       <End Role="providerUser" EntitySet="providerUser" />
+    </AssociationSet>
+    <AssociationSet Name="FK_providerUser_user_UpdateUserId" Association="Self.FK_providerUser_user_UpdateUserId">
+      <End Role="user" EntitySet="user" />
+      <End Role="providerUser" EntitySet="providerUser" />
+    </AssociationSet>
+    <AssociationSet Name="FK_providerUser_user_UserId" Association="Self.FK_providerUser_user_UserId">
+      <End Role="user" EntitySet="user" />
+      <End Role="providerUser" EntitySet="providerUser" />
+    </AssociationSet>
+    <AssociationSet Name="FK_providerUserRole_user" Association="Self.FK_providerUserRole_user">
+      <End Role="user" EntitySet="user" />
+      <End Role="providerUserRole" EntitySet="providerUserRole" />
+    </AssociationSet>
+    <AssociationSet Name="FK_providerUserRole_user_UpdateUserId" Association="Self.FK_providerUserRole_user_UpdateUserId">
+      <End Role="user" EntitySet="user" />
+      <End Role="providerUserRole" EntitySet="providerUserRole" />
     </AssociationSet>
     <AssociationSet Name="FK_providerUserRoles_providerUser" Association="Self.FK_providerUserRoles_providerUser">
       <End Role="providerUser" EntitySet="providerUser" />
@@ -633,6 +890,22 @@ warning 6002: The table/view 'CCAttendance.dbo.attendanceA' does not have a prim
     <AssociationSet Name="FK_providerUserRoles_role" Association="Self.FK_providerUserRoles_role">
       <End Role="refRole" EntitySet="refRole" />
       <End Role="providerUserRole" EntitySet="providerUserRole" />
+    </AssociationSet>
+    <AssociationSet Name="FK_refRole_user_CreateUserId" Association="Self.FK_refRole_user_CreateUserId">
+      <End Role="user" EntitySet="user" />
+      <End Role="refRole" EntitySet="refRole" />
+    </AssociationSet>
+    <AssociationSet Name="FK_refRole_user_UpdateUserId" Association="Self.FK_refRole_user_UpdateUserId">
+      <End Role="user" EntitySet="user" />
+      <End Role="refRole" EntitySet="refRole" />
+    </AssociationSet>
+    <AssociationSet Name="FK_refState_user" Association="Self.FK_refState_user">
+      <End Role="user" EntitySet="user" />
+      <End Role="refState" EntitySet="refState" />
+    </AssociationSet>
+    <AssociationSet Name="FK_refState_user1" Association="Self.FK_refState_user1">
+      <End Role="user" EntitySet="user" />
+      <End Role="refState" EntitySet="refState" />
     </AssociationSet>
     <AssociationSet Name="FK_user_refState" Association="Self.FK_user_refState">
       <End Role="refState" EntitySet="refState" />

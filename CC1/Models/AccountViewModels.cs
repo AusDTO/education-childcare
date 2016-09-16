@@ -49,6 +49,12 @@ namespace CC1.Models
     public class LoginViewModel
     {
         [Required]
+        [Display(Name = "User Name")]
+        [DataType(DataType.Text)]
+        public string UserName { get; set; }
+
+
+
         [Display(Name = "Email")]
         [EmailAddress]
         public string Email { get; set; }
@@ -64,6 +70,12 @@ namespace CC1.Models
 
     public class RegisterViewModel
     {
+        [Required]
+        [Display(Name = "User Name")]
+        [DataType(DataType.Text)]
+        public string UserName { get; set; }
+
+
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]

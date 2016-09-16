@@ -18,12 +18,31 @@ namespace CC1.Models
         public user()
         {
             this.attendances = new HashSet<attendance>();
+            this.attendances1 = new HashSet<attendance>();
             this.attendanceExpecteds = new HashSet<attendanceExpected>();
+            this.attendanceExpecteds1 = new HashSet<attendanceExpected>();
+            this.attendanceExpecteds2 = new HashSet<attendanceExpected>();
+            this.attendanceStatus = new HashSet<attendanceStatu>();
+            this.attendanceStatus1 = new HashSet<attendanceStatu>();
             this.ccChilds = new HashSet<ccChild>();
+            this.ccChilds1 = new HashSet<ccChild>();
+            this.ccChilds2 = new HashSet<ccChild>();
             this.childGuardians = new HashSet<childGuardian>();
+            this.childGuardians1 = new HashSet<childGuardian>();
+            this.childGuardians2 = new HashSet<childGuardian>();
+            this.providers = new HashSet<provider>();
+            this.providers1 = new HashSet<provider>();
+            this.providers2 = new HashSet<provider>();
             this.providerUsers = new HashSet<providerUser>();
             this.providerUsers1 = new HashSet<providerUser>();
-            this.providers = new HashSet<provider>();
+            this.providerUsers2 = new HashSet<providerUser>();
+            this.providerUsers3 = new HashSet<providerUser>();
+            this.providerUserRoles = new HashSet<providerUserRole>();
+            this.providerUserRoles1 = new HashSet<providerUserRole>();
+            this.refRoles = new HashSet<refRole>();
+            this.refRoles1 = new HashSet<refRole>();
+            this.refStates = new HashSet<refState>();
+            this.refStates1 = new HashSet<refState>();
         }
     
         public int UserId { get; set; }
@@ -59,17 +78,55 @@ namespace CC1.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<attendance> attendances { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<attendance> attendances1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<attendanceExpected> attendanceExpecteds { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<attendanceExpected> attendanceExpecteds1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<attendanceExpected> attendanceExpecteds2 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<attendanceStatu> attendanceStatus { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<attendanceStatu> attendanceStatus1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ccChild> ccChilds { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ccChild> ccChilds1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ccChild> ccChilds2 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<childGuardian> childGuardians { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<childGuardian> childGuardians1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<childGuardian> childGuardians2 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<provider> providers { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<provider> providers1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<provider> providers2 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<providerUser> providerUsers { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<providerUser> providerUsers1 { get; set; }
-        public virtual refState refState { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<provider> providers { get; set; }
+        public virtual ICollection<providerUser> providerUsers2 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<providerUser> providerUsers3 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<providerUserRole> providerUserRoles { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<providerUserRole> providerUserRoles1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<refRole> refRoles { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<refRole> refRoles1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<refState> refStates { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<refState> refStates1 { get; set; }
+        public virtual refState refState { get; set; }
     }
 }

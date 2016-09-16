@@ -32,15 +32,15 @@ namespace CC1.Models
         public virtual DbSet<attendanceStatu> attendanceStatus { get; set; }
         public virtual DbSet<ccChild> ccChilds { get; set; }
         public virtual DbSet<childGuardian> childGuardians { get; set; }
+        public virtual DbSet<provider> providers { get; set; }
         public virtual DbSet<providerUser> providerUsers { get; set; }
         public virtual DbSet<providerUserRole> providerUserRoles { get; set; }
         public virtual DbSet<refRole> refRoles { get; set; }
+        public virtual DbSet<refState> refStates { get; set; }
         public virtual DbSet<refStatu> refStatus { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
-        public virtual DbSet<attendanceA> attendanceAs { get; set; }
-        public virtual DbSet<refState> refStates { get; set; }
         public virtual DbSet<user> users { get; set; }
-        public virtual DbSet<provider> providers { get; set; }
+        public virtual DbSet<attendanceA> attendanceAs { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {
