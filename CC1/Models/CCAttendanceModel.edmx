@@ -72,6 +72,7 @@ warning 6002: The table/view 'CCAttendance.dbo.attendanceA' does not have a prim
           <Property Name="Friday" Type="bit" />
           <Property Name="Saturday" Type="bit" />
           <Property Name="Sunday" Type="bit" />
+          <Property Name="Room" Type="varchar" MaxLength="100" />
           <Property Name="EffectiveDate" Type="datetime" />
           <Property Name="EndDate" Type="datetime" />
           <Property Name="CreatedUserId" Type="int" Nullable="false" />
@@ -1227,6 +1228,7 @@ warning 6002: The table/view 'CCAttendance.dbo.attendanceA' does not have a prim
           <NavigationProperty Name="user" Relationship="CCAttendanceModel.FK_attendanceExpected_user_CreatedUserId" FromRole="attendanceExpected" ToRole="user" />
           <NavigationProperty Name="user1" Relationship="CCAttendanceModel.FK_attendanceExpected_user_GuardianUserId" FromRole="attendanceExpected" ToRole="user" />
           <NavigationProperty Name="user2" Relationship="CCAttendanceModel.FK_attendanceExpected_user_UpdateUserId" FromRole="attendanceExpected" ToRole="user" />
+          <Property Name="Room" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="attendanceStatu">
           <Key>
@@ -2002,6 +2004,7 @@ warning 6002: The table/view 'CCAttendance.dbo.attendanceA' does not have a prim
           <EntitySetMapping Name="attendanceExpecteds">
             <EntityTypeMapping TypeName="CCAttendanceModel.attendanceExpected">
               <MappingFragment StoreEntitySet="attendanceExpected">
+                <ScalarProperty Name="Room" ColumnName="Room" />
                 <ScalarProperty Name="TRTimestamp" ColumnName="TRTimestamp" />
                 <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
                 <ScalarProperty Name="UpdateUserId" ColumnName="UpdateUserId" />

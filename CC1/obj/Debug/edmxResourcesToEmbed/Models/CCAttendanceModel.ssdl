@@ -67,6 +67,7 @@ warning 6002: The table/view 'CCAttendance.dbo.attendanceA' does not have a prim
     <Property Name="Friday" Type="bit" />
     <Property Name="Saturday" Type="bit" />
     <Property Name="Sunday" Type="bit" />
+    <Property Name="Room" Type="varchar" MaxLength="100" />
     <Property Name="EffectiveDate" Type="datetime" />
     <Property Name="EndDate" Type="datetime" />
     <Property Name="CreatedUserId" Type="int" Nullable="false" />

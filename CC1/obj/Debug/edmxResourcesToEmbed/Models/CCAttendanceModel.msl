@@ -26,6 +26,7 @@
     <EntitySetMapping Name="attendanceExpecteds">
       <EntityTypeMapping TypeName="CCAttendanceModel.attendanceExpected">
         <MappingFragment StoreEntitySet="attendanceExpected">
+          <ScalarProperty Name="Room" ColumnName="Room" />
           <ScalarProperty Name="TRTimestamp" ColumnName="TRTimestamp" />
           <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
           <ScalarProperty Name="UpdateUserId" ColumnName="UpdateUserId" />

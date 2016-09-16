@@ -306,6 +306,7 @@
     <NavigationProperty Name="user" Relationship="CCAttendanceModel.FK_attendanceExpected_user_CreatedUserId" FromRole="attendanceExpected" ToRole="user" />
     <NavigationProperty Name="user1" Relationship="CCAttendanceModel.FK_attendanceExpected_user_GuardianUserId" FromRole="attendanceExpected" ToRole="user" />
     <NavigationProperty Name="user2" Relationship="CCAttendanceModel.FK_attendanceExpected_user_UpdateUserId" FromRole="attendanceExpected" ToRole="user" />
+    <Property Name="Room" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="attendanceStatu">
     <Key>
