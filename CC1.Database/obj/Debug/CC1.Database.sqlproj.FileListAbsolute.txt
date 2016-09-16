@@ -17,3 +17,7 @@ C:\Users\jdelloro\Documents\GitHub\education-childcare\CC1.Database\obj\Debug\po
 C:\Users\jdelloro\Documents\GitHub\education-childcare\CC1.Database\obj\Debug\predeploy.sql
 C:\Users\jdelloro\Documents\GitHub\education-childcare\CC1.Database\obj\Debug\CC1.Database.dll
 C:\Users\jdelloro\Documents\GitHub\education-childcare\CC1.Database\obj\Debug\CC1.Database.pdb
+C:\data\Web\CC1\education-childcare\CC1.Database\obj\Debug\Model.xml
+C:\data\Web\CC1\education-childcare\CC1.Database\obj\Debug\refactor.xml
+C:\data\Web\CC1\education-childcare\CC1.Database\obj\Debug\postdeploy.sql
+C:\data\Web\CC1\education-childcare\CC1.Database\obj\Debug\predeploy.sql
