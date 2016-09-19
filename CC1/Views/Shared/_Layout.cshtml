@@ -9,6 +9,17 @@
     @Styles.Render("~/assets/css/ui-kit.css")
     @Styles.Render("~/assets/css/education.css")
     @Scripts.Render("~/assets/js/ui-kit.js")
+    <style>
+        footer ul {
+            margin: 0 auto;
+            width: 100%;
+        }
+        footer ul li {
+            display: inline-block;
+            margin-right:1.5em;
+            float: left;
+        }
+    </style>
 </head>
 <body>
 <nav class="skip-to">
@@ -99,6 +110,7 @@
 
 
 <footer role="contentinfo">
+@Html.Partial("_NavBar")
 </footer>
     @Scripts.Render("~/bundles/jquery")
     @RenderSection("scripts", required: false)
