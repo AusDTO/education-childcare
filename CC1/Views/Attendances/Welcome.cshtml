@@ -1,0 +1,128 @@
+﻿@model IEnumerable<CC1.Models.attendance>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    <ul>
+        @for (int i = 0; i < ViewBag.NumTimes; i++)
+        {
+            <li>@ViewBag.Message</li>
+        }
+    </ul>
+</p>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.SignInTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SignInUserId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SignOutTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SignOutUserId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Comment)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsLocked)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserStatusId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Absent)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UpdateDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TRTimestamp)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ccChild.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.provider.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.user.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.user1.FirstName)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SignInTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SignInUserId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SignOutTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SignOutUserId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Comment)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsLocked)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserStatusId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Absent)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdateDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TRTimestamp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ccChild.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.provider.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.user.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.user1.FirstName)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.AttendanceId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.AttendanceId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.AttendanceId })
+            </td>
+        </tr>
+    }
+
+</table>

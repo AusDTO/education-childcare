@@ -18,7 +18,7 @@
         <EntityTypeShape EntityType="CCAttendanceModel.refStatu" Width="2.375" PointX="7.5" PointY="12.875" />
         <EntityTypeShape EntityType="CCAttendanceModel.sysdiagram" Width="2.375" PointX="0.75" PointY="0.75" />
         <EntityTypeShape EntityType="CCAttendanceModel.user" Width="2.375" PointX="0.75" PointY="12.25" />
-        <EntityTypeShape EntityType="CCAttendanceModel.attendanceA" Width="2.375" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="CCAttendanceModel.attendanceA" Width="2.375" PointX="3.625" PointY="0.75" />
         <AssociationConnector Association="CCAttendanceModel.FK_attendance_ccChild" />
         <AssociationConnector Association="CCAttendanceModel.FK_attendance_provider" />
         <AssociationConnector Association="CCAttendanceModel.FK_attendance_user" />
