@@ -13,6 +13,11 @@ namespace CC1
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            routes.MapMvcAttributeRoutes(); //required for attribute based routing
+
+            //routes.MapRoute(name: "LoggedOnUserProvider",
+            //   url:"Providers/Choose/{userId}",
+            //   defaults: new { controller = "Providers", action = "Choose" });
 
             routes.MapRoute(
                 name: "Default",

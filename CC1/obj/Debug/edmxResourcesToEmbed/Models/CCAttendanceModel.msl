@@ -26,6 +26,7 @@
     <EntitySetMapping Name="attendanceExpecteds">
       <EntityTypeMapping TypeName="CCAttendanceModel.attendanceExpected">
         <MappingFragment StoreEntitySet="attendanceExpected">
+          <ScalarProperty Name="Room" ColumnName="Room" />
           <ScalarProperty Name="TRTimestamp" ColumnName="TRTimestamp" />
           <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
           <ScalarProperty Name="UpdateUserId" ColumnName="UpdateUserId" />
@@ -254,6 +255,20 @@
           <ScalarProperty Name="ChildId" ColumnName="ChildId" />
           <ScalarProperty Name="ProviderId" ColumnName="ProviderId" />
           <ScalarProperty Name="AttendanceId" ColumnName="AttendanceId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspUserUsers">
+      <EntityTypeMapping TypeName="CCAttendanceModel.AspUserUser">
+        <MappingFragment StoreEntitySet="AspUserUser">
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="UpdateUserId" ColumnName="UpdateUserId" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateUserId" ColumnName="CreateUserId" />
+          <ScalarProperty Name="TrTimestamp" ColumnName="TrTimestamp" />
+          <ScalarProperty Name="AspUserId" ColumnName="AspUserId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="AspUserUserId" ColumnName="AspUserUserId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

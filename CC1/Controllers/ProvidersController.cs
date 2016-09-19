@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using CC1.Models;
 
+
 namespace CC1.Controllers
 {
     public class ProvidersController : Controller
@@ -17,9 +18,52 @@ namespace CC1.Controllers
         // GET: Providers
         public ActionResult Index()
         {
+
             var providers = db.providers.Include(p => p.provider2).Include(p => p.user).Include(x=>x.refState);
             return View(providers.ToList());
         }
+
+
+        public ActionResult Choose()
+        {
+            string aspNetUserId = CC1Helpers.GetCurrentClaimsUserId(User);
+            var aspNetUser = db.AspUserUsers.Where(x => x.AspUserId == aspNetUserId).FirstOrDefault();
+            int ccAttendanceUserId = aspNetUser.UserId.Value;
+            List<provider> providers = CC1Helpers.GetProvidersForUser(ccAttendanceUserId);
+            ViewBag.ProviderOptions = new SelectList(providers.OrderBy(x => x.Name), "ProviderId", "Name");
+
+            return View();
+
+
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Choose([Bind(Include = "ProviderId")] provider provider)
+        {
+            string aspNetUserId = CC1Helpers.GetCurrentClaimsUserId(User);
+            var aspNetUser = db.AspUserUsers.Where(x => x.AspUserId == aspNetUserId).FirstOrDefault();
+
+            int ccAttendanceUserId = aspNetUser.UserId.Value;
+            List<provider> providers = CC1Helpers.GetProvidersForUser(ccAttendanceUserId);
+            ViewBag.ProviderOptions = new SelectList(providers.OrderBy(x => x.Name), "ProviderId", "Name");
+
+            return RedirectToAction("Details", new { id = provider.ProviderId });
+
+
+        }
+
+
+
+
+
+        //public ActionResult Index(List<provider> userProvider)
+        //{
+        //    var providers = db.providers.Include(p => p.provider2).Include(p => p.user).Include(x => x.refState);
+        //    return View(providers.ToList());
+        //}
+
+
 
         // GET: Providers/Details/5
         public ActionResult Details(int? id)
