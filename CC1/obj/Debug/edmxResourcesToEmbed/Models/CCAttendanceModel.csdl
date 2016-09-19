@@ -231,6 +231,11 @@
       <End Role="refState" EntitySet="refStates" />
       <End Role="user" EntitySet="users" />
     </AssociationSet>
+    <EntitySet Name="AspUserUsers" EntityType="CCAttendanceModel.AspUserUser" />
+    <AssociationSet Name="FK_AspUserUser_user" Association="CCAttendanceModel.FK_AspUserUser_user">
+      <End Role="user" EntitySet="users" />
+      <End Role="AspUserUser" EntitySet="AspUserUsers" />
+    </AssociationSet>
   </EntityContainer>
   <ComplexType Name="sp_helpdiagramdefinition_Result">
     <Property Type="Int32" Name="version" Nullable="true" />
@@ -306,6 +311,7 @@
     <NavigationProperty Name="user" Relationship="CCAttendanceModel.FK_attendanceExpected_user_CreatedUserId" FromRole="attendanceExpected" ToRole="user" />
     <NavigationProperty Name="user1" Relationship="CCAttendanceModel.FK_attendanceExpected_user_GuardianUserId" FromRole="attendanceExpected" ToRole="user" />
     <NavigationProperty Name="user2" Relationship="CCAttendanceModel.FK_attendanceExpected_user_UpdateUserId" FromRole="attendanceExpected" ToRole="user" />
+    <Property Name="Room" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="attendanceStatu">
     <Key>
@@ -551,6 +557,7 @@
     <NavigationProperty Name="refStates" Relationship="CCAttendanceModel.FK_refState_user" FromRole="user" ToRole="refState" />
     <NavigationProperty Name="refStates1" Relationship="CCAttendanceModel.FK_refState_user1" FromRole="user" ToRole="refState" />
     <NavigationProperty Name="refState" Relationship="CCAttendanceModel.FK_user_refState" FromRole="user" ToRole="refState" />
+    <NavigationProperty Name="AspUserUsers" Relationship="CCAttendanceModel.FK_AspUserUser_user" FromRole="user" ToRole="AspUserUser" />
   </EntityType>
   <EntityType Name="attendanceA">
     <Key>
@@ -1047,6 +1054,32 @@
       </Principal>
       <Dependent Role="user">
         <PropertyRef Name="StateId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="AspUserUser">
+    <Key>
+      <PropertyRef Name="AspUserUserId" />
+    </Key>
+    <Property Name="AspUserUserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" />
+    <Property Name="AspUserId" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="TrTimestamp" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="CreateUserId" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdateUserId" Type="Int32" Nullable="false" />
+    <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="user" Relationship="CCAttendanceModel.FK_AspUserUser_user" FromRole="AspUserUser" ToRole="user" />
+  </EntityType>
+  <Association Name="FK_AspUserUser_user">
+    <End Type="CCAttendanceModel.user" Role="user" Multiplicity="0..1" />
+    <End Type="CCAttendanceModel.AspUserUser" Role="AspUserUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="AspUserUser">
+        <PropertyRef Name="UserId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

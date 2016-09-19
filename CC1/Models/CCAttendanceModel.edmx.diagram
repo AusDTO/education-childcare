@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="17acb6bcd5e840998d599812e26b0ead" Name="Diagram1" ZoomLevel="95">
+      <Diagram DiagramId="17acb6bcd5e840998d599812e26b0ead" Name="Diagram1" ZoomLevel="74">
         <EntityTypeShape EntityType="CCAttendanceModel.attendance" Width="2.375" PointX="7.5" PointY="25.25" />
         <EntityTypeShape EntityType="CCAttendanceModel.attendanceExpected" Width="2.375" PointX="10.5" PointY="25.125" />
         <EntityTypeShape EntityType="CCAttendanceModel.attendanceStatu" Width="2.375" PointX="9.75" PointY="19.625" />
@@ -18,7 +18,7 @@
         <EntityTypeShape EntityType="CCAttendanceModel.refStatu" Width="2.375" PointX="7.5" PointY="12.875" />
         <EntityTypeShape EntityType="CCAttendanceModel.sysdiagram" Width="2.375" PointX="0.75" PointY="0.75" />
         <EntityTypeShape EntityType="CCAttendanceModel.user" Width="2.375" PointX="0.75" PointY="12.25" />
-        <EntityTypeShape EntityType="CCAttendanceModel.attendanceA" Width="2.375" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="CCAttendanceModel.attendanceA" Width="2.375" PointX="9" PointY="1" />
         <AssociationConnector Association="CCAttendanceModel.FK_attendance_ccChild" />
         <AssociationConnector Association="CCAttendanceModel.FK_attendance_provider" />
         <AssociationConnector Association="CCAttendanceModel.FK_attendance_user" />
@@ -58,6 +58,8 @@
         <AssociationConnector Association="CCAttendanceModel.FK_refState_user" />
         <AssociationConnector Association="CCAttendanceModel.FK_refState_user1" />
         <AssociationConnector Association="CCAttendanceModel.FK_user_refState" />
+        <EntityTypeShape EntityType="CCAttendanceModel.AspUserUser" Width="1.5" PointX="3.875" PointY="14.875" />
+        <AssociationConnector Association="CCAttendanceModel.FK_AspUserUser_user" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

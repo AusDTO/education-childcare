@@ -9,6 +9,13 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using CC1.Models;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
+using System.Net;
+
+
+
 
 namespace CC1.Controllers
 {
@@ -17,6 +24,7 @@ namespace CC1.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        private static CCAttendanceEntities db = new CCAttendanceEntities();
 
         public AccountController()
         {
@@ -87,7 +95,55 @@ namespace CC1.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
-                    return RedirectToLocal(returnUrl);
+                    {
+                        try
+                        {
+                            var aspNetUserId = SignInManager.AuthenticationManager.AuthenticationResponseGrant.Identity.GetUserId();
+
+
+                            if (db.AspUserUsers.Count(x => x.AspUserId == aspNetUserId) == 0)
+                            {
+                                ModelState.AddModelError("", "No Childcare Security Information for this user");
+                                return View(model);
+                            }
+
+
+                            var aspNetUser = db.AspUserUsers.Where(x => x.AspUserId == aspNetUserId).FirstOrDefault();
+                            if (aspNetUser.UserId.HasValue)
+                            {
+                                int ccAttendanceUserId = aspNetUser.UserId.Value;
+
+                                var providers = CC1Helpers.GetProvidersForUser(ccAttendanceUserId);
+                                if (providers.Count() == 0)
+                                {
+                                    ModelState.AddModelError("", "No Provider for this user");
+                                    return View(model);
+                                }
+
+
+                                if (providers.Count() == 1)
+                                {
+                                    //should go to attendance dashboard for provider
+                                    return RedirectToAction("Details", "Providers", new { id = providers.FirstOrDefault().ProviderId });
+                                }
+                                else
+                                {
+                                    //choose a provider
+
+                                    return RedirectToAction("Choose", "Providers");
+                                }
+
+
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            ModelState.AddModelError("", ex.Message);
+
+                        }
+
+                        return RedirectToLocal(returnUrl);
+                    }
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:

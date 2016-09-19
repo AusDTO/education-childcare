@@ -5,37 +5,11 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-  <form>
-    <table class="content-table">
-      <caption>Attendance today</caption>
-      <thead>
-        <tr>
-          <th scope="col" class="left" style="width: 40%"><p>@Html.DisplayNameFor(model => model.Name)</p></th>
-          <th scope="col" style="width: 7%"><p>Absent</p></th>
-          <th scope="col" style="width: 9%"><p>Sign in</p></th>
-          <th scope="col" style="width: 9%"><p>Sign out</p></th>
-        </tr>
-      </thead>
-      <tbody>
-        @foreach (var item in Model) {
-        <tr>
-          <td class="left"><p><a href="child-detail.html">@Html.DisplayFor(modelItem => item.Name)</a></p></td>
-          <td><p><input type="checkbox" value="" id="c01-absent" /> <label for="c01-absent"><span class="visuallyhidden">Absent</span></label></p></td>
-          <td><p><label for="c01-signedIn"><span class="visuallyhidden">Signed in</span></label>
-          <input name="c01-signedIn" id="c01-signedIn" type="text" value="06:32 AM" /></p></td>
-          <td><button class="btn-small">Sign out</button></td>
-        </tr>
-        }
-      </tbody>
-      <tfoot>
-        <tr>
-          <td colspan="4" class="left"><p><button>Submit attendance</button></p></td>
-        </tr>
-      </tfoot>
-    </table>
-    </form>
+<h2>Providers</h2>
 
-<!--
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
 <table class="table">
     <tr>
         <th>
@@ -143,4 +117,3 @@
 }
 
 </table>
--->

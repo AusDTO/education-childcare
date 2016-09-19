@@ -1,0 +1,37 @@
+﻿@model CC1.Models.provider
+@{
+    ViewBag.Title = "Choose a Provider";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Choose a Provider</h2>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+
+        <div class="form-group">
+
+            @Html.LabelFor(model => model.ProviderId, "Please select a Provider.", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+
+
+                @Html.DropDownListFor(m=>m.ProviderId, new SelectList(@ViewBag.ProviderOptions, "value", "text"))
+            </div>
+
+
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Continue" class="btn btn-default" />
+            </div>
+        </div>
+     </div>
+}
+

@@ -43,6 +43,7 @@ namespace CC1.Models
             this.refRoles1 = new HashSet<refRole>();
             this.refStates = new HashSet<refState>();
             this.refStates1 = new HashSet<refState>();
+            this.AspUserUsers = new HashSet<AspUserUser>();
         }
     
         public int UserId { get; set; }
@@ -128,5 +129,7 @@ namespace CC1.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<refState> refStates1 { get; set; }
         public virtual refState refState { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<AspUserUser> AspUserUsers { get; set; }
     }
 }
