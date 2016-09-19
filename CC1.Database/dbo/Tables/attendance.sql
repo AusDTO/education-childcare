@@ -23,6 +23,126 @@
 );
 
 
+
+
 GO
 EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Attendance', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'attendance';
 
+
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE TRIGGER [dbo].[trAttendanceUpdate]
+   ON  [dbo].[attendance]
+   AFTER UPDATE
+AS 
+BEGIN
+	insert into attendanceA
+	(
+	[AttendanceId]
+	,[ProviderId] 
+	,[ChildId]
+	,[SignInTime]
+	,[SignInUserId] 
+	,[SignOutTime]
+	,[SignOutUserId]
+	,[Comment] 
+	,[IsLocked]
+	,[CreatedUserId]
+	,[CreatedDate]
+	,[UpdateUserId] 
+	,[UpdateDate] 
+	,[UserStatusId] 
+	,[Absent]
+	,[AuditDate]
+	--,[TRTimestamp]
+	
+	)
+
+	select
+		[AttendanceId]
+	,[ProviderId] 
+	,[ChildId]
+	,[SignInTime]
+	,[SignInUserId] 
+	,[SignOutTime]
+	,[SignOutUserId]
+	,[Comment] 
+	,[IsLocked]
+	,[CreatedUserId]
+	,[CreatedDate]
+	,[UpdateUserId] 
+	,[UpdateDate] 
+	,[UserStatusId] 
+	,[Absent]
+	,GETDATE()
+	--,[TRTimestamp]
+
+	from inserted
+
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for trigger here
+
+END
+GO
+CREATE TRIGGER [dbo].[trAttendanceDelete]
+   ON  [dbo].[attendance]
+   AFTER  DELETE
+AS 
+BEGIN
+	insert into attendanceA
+	(
+	[AttendanceId]
+	,[ProviderId] 
+	,[ChildId]
+	,[SignInTime]
+	,[SignInUserId] 
+	,[SignOutTime]
+	,[SignOutUserId]
+	,[Comment] 
+	,[IsLocked]
+	,[CreatedUserId]
+	,[CreatedDate]
+	,[UpdateUserId] 
+	,[UpdateDate] 
+	,[UserStatusId] 
+	,[Absent]
+	,[AuditDate]
+	--,[TRTimestamp]
+	
+	)
+
+	select
+		[AttendanceId]
+	,[ProviderId] 
+	,[ChildId]
+	,[SignInTime]
+	,[SignInUserId] 
+	,[SignOutTime]
+	,[SignOutUserId]
+	,[Comment] 
+	,[IsLocked]
+	,[CreatedUserId]
+	,[CreatedDate]
+	,[UpdateUserId] 
+	,[UpdateDate] 
+	,[UserStatusId] 
+	,[Absent]
+	,GETDATE() -- set audit date to current date
+	--,[TRTimestamp]
+
+	from deleted
+
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for trigger here
+
+END

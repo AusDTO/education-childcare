@@ -88,5 +88,6 @@
     <Build Include="dbo\Tables\attendanceA.sql" />
     <Build Include="dbo\Tables\attendance.sql" />
     <Build Include="dbo\Views\vwAttendance.sql" />
+    <Build Include="dbo\Tables\AspUserUser.sql" />
   </ItemGroup>
 </Project>
