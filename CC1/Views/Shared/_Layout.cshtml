@@ -3,43 +3,116 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>@ViewBag.Title - Childcare Attendance</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>@ViewBag.Title - Childcare Attendance</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
-
+    @Styles.Render("~/assets/css/ui-kit.css")
+    @Styles.Render("~/assets/css/education.css")
+    @Scripts.Render("~/assets/js/ui-kit.js")
+    <style>
+        footer ul {
+            margin: 0 auto;
+            width: 100%;
+        }
+        footer ul li {
+            display: inline-block;
+            margin-right:1.5em;
+            float: left;
+        }
+    </style>
 </head>
 <body>
-    <nav class="skip-to">
-        <a href="#content">Skip to main content</a>
-        <a href="#nav">Skip to section navigation</a>
-    </nav>
-    <header role="banner">
-        <section class="govau--header">
-            <div class="wrapper">
-                <div class="govau--logo">
-                    <a href="index.html" class="logo">Child care attendance trial</a> <span class="badge--default">beta</span>
-                </div>
-            </div>
-        </section>
-    </header>
-
-
-
-
-    @Html.Partial("_NavBar")
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Childcare Attendance</p>
-        </footer>
+<nav class="skip-to">
+  <a href="#content">Skip to main content</a>
+</nav>
+<header role="banner">
+  <section class="govau--header attendance--header">
+    <div class="wrapper push-left">
+      <div class="govau--logo">
+        <a href="index.html" class="logo">Child care attendance</a><span class="badge--default">beta</span>
+      </div>
+      <p class="user">Hi, <strong>Linda Joseph</strong> <a class="logout" href="index.html">Log out</a></p>
+      <button type="button" class="btn--login-family" onclick="location.href='family-login.html'">Family login</button>
     </div>
+  </section>
+</header>
 
+<section class="attendance-status">
+  <div class="wrapper">
+    <div class="attendance-status-item attendance-time">
+      <p>
+        06:36 AM<br />
+        <span>Tue 21 Sep</span>
+      </p>
+    </div>
+    <div class="numerical-data">
+      <div class="attendance-status-item">
+        <p>
+          <strong>12</strong><br />
+          <span>enrolled</span>
+        </p>
+      </div>
+      <div class="attendance-status-item">
+        <p>
+          <strong>4</strong><br />
+          <span>expected</span>
+        </p>
+      </div>
+      <div class="attendance-status-item">
+        <p>
+          <strong>0</strong><br />
+          <span>signed in</span>
+        </p>
+      </div>
+    </div><!-- numerical-data -->
+  </div>
+</section>
+
+<!-- ========== Main Page Row ========== -->
+<main role="main">
+
+  <!-- ========== Refine column ========== -->
+  <aside class="attendance-filter">
+    <h2>Refine</h2>
+      <p>
+        <label for="dateFrom">Date from</label>
+        <input name="dateFrom" id="dateFrom" type="date" value="2016-09-21" />
+      </p>
+      <p>
+        <label for="dateTo">Date to</label>
+        <input name="dateTo" id="dateTo" type="date" value="2016-09-21" />
+      </p>
+      <p>
+        <label for="attendanceType">Attendance type</label>
+        <select name="attendanceType" id="attendanceType">
+          <option selected>Expected today</option>
+          <option>Total enrolled</option>
+        </select>
+      </p>
+      <p>
+        <label for="room">Room</label>
+        <select name="room" id="room">
+          <option selected>Burra</option>
+          <option>Kidna</option>
+          <option>Roo</option>
+        </select>
+      </p>
+      <p><button class="btn-small">Filter view</button></p>
+   </aside>
+  <!-- ========== Content ========== -->
+  <article id="content" class="content-main">
+    @RenderBody()
+  </article>
+  <!-- ========== end Content ========== -->
+</main>
+
+
+
+
+<footer role="contentinfo">
+@Html.Partial("_NavBar")
+</footer>
     @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 </body>
 </html>
