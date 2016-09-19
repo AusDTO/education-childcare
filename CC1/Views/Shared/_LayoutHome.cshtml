@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>@ViewBag.Title - Childcare Attendance</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    @Styles.Render("~/assets/css/ui-kit.css")
+    @Styles.Render("~/assets/css/education.css")
+    @Scripts.Render("~/assets/js/ui-kit.js")
+    <style>
+        footer ul {
+            margin: 0 auto;
+            width: 100%;
+        }
+        footer ul li {
+            display: inline-block;
+            margin-right:1.5em;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+<nav class="skip-to">
+  <a href="#content">Skip to main content</a>
+</nav>
+<header role="banner">
+  <section class="govau--header">
+    <div class="wrapper">
+      <div class="govau--logo">
+        <a href="index.html" class="logo">Child care attendance trial</a> <span class="badge--default">beta</span>
+      </div>
+    </div>
+  </section>
+</header>
+
+<!-- ========== Main Page Row ========== -->
+<main role="main">
+
+  <!-- ========== Content ========== -->
+  <article id="content" class="content-main">
+    @RenderBody()
+    
+  </article>
+  <!-- ========== end Content ========== -->
+</main>
+
+<footer role="contentinfo">
+@Html.Partial("_NavBar")
+</footer>
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
