@@ -209,6 +209,7 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="CC1Helpers.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ChildGuardiansController.cs" />
     <Compile Include="Controllers\ChildrenController.cs" />
@@ -221,6 +222,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\AspUserUser.cs">
+      <DependentUpon>CCAttendanceModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\attendance.cs">
       <DependentUpon>CCAttendanceModel.tt</DependentUpon>
     </Compile>
@@ -410,6 +414,7 @@
     <Content Include="Views\ChildGuardians\Edit.cshtml" />
     <Content Include="Views\ChildGuardians\Index.cshtml" />
     <Content Include="Views\ChildGuardians\Create2.cshtml" />
+    <Content Include="Views\Providers\Choose.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,5 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="CCAttendanceModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AspUserUser">
+    <Key>
+      <PropertyRef Name="AspUserUserId" />
+    </Key>
+    <Property Name="AspUserUserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="AspUserId" Type="varchar" MaxLength="128" />
+    <Property Name="TrTimestamp" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+    <Property Name="CreateUserId" Type="int" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="UpdateUserId" Type="int" Nullable="false" />
+    <Property Name="UpdateDate" Type="datetime" Nullable="false" />
+  </EntityType>
   <EntityType Name="attendance">
     <Key>
       <PropertyRef Name="AttendanceId" />
@@ -67,6 +80,7 @@ warning 6002: The table/view 'CCAttendance.dbo.attendanceA' does not have a prim
     <Property Name="Friday" Type="bit" />
     <Property Name="Saturday" Type="bit" />
     <Property Name="Sunday" Type="bit" />
+    <Property Name="Room" Type="varchar" MaxLength="100" />
     <Property Name="EffectiveDate" Type="datetime" />
     <Property Name="EndDate" Type="datetime" />
     <Property Name="CreatedUserId" Type="int" Nullable="false" />
@@ -252,6 +266,18 @@ warning 6002: The table/view 'CCAttendance.dbo.attendanceA' does not have a prim
     <Property Name="UpdateUserId" Type="int" Nullable="false" />
     <Property Name="UpdateDate" Type="datetime" Nullable="false" />
   </EntityType>
+  <Association Name="FK_AspUserUser_user">
+    <End Role="user" Type="Self.user" Multiplicity="0..1" />
+    <End Role="AspUserUser" Type="Self.AspUserUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="AspUserUser">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_attendance_ccChild">
     <End Role="ccChild" Type="Self.ccChild" Multiplicity="1" />
     <End Role="attendance" Type="Self.attendance" Multiplicity="*" />
@@ -721,6 +747,7 @@ warning 6002: The table/view 'CCAttendance.dbo.attendanceA' does not have a prim
     </ReferentialConstraint>
   </Association>
   <EntityContainer Name="CCAttendanceModelStoreContainer">
+    <EntitySet Name="AspUserUser" EntityType="Self.AspUserUser" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="attendance" EntityType="Self.attendance" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="attendanceExpected" EntityType="Self.attendanceExpected" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="attendanceStatus" EntityType="Self.attendanceStatus" Schema="dbo" store:Type="Tables" />
@@ -755,6 +782,10 @@ warning 6002: The table/view 'CCAttendance.dbo.attendanceA' does not have a prim
     [attendanceA].[TRTimestamp] AS [TRTimestamp]
     FROM [dbo].[attendanceA] AS [attendanceA]</DefiningQuery>
     </EntitySet>
+    <AssociationSet Name="FK_AspUserUser_user" Association="Self.FK_AspUserUser_user">
+      <End Role="user" EntitySet="user" />
+      <End Role="AspUserUser" EntitySet="AspUserUser" />
+    </AssociationSet>
     <AssociationSet Name="FK_attendance_ccChild" Association="Self.FK_attendance_ccChild">
       <End Role="ccChild" EntitySet="ccChild" />
       <End Role="attendance" EntitySet="attendance" />
