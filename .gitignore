@@ -1,0 +1,14 @@
+CC1/Web.config
+CC1/Web.config
+*.suo
+CC1.Database/bin/Debug/CC1.Database.dacpac
+*.dacpac
+*.jfm
+CC1.Tests/bin/Debug/CC1.dll
+*.pdb
+CC1.Tests/bin/Debug/CC1.Tests.dll
+*.pdb
+CC1.Tests/obj/Debug/CC1.Tests.csprojResolveAssemblyReference.cache
+*.dll
+CC1.Tests/obj/Debug/CC1.Tests.pdb
+*.dll

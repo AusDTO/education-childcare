@@ -259,6 +259,5 @@ C:\Users\jdelloro\Documents\GitHub\education-childcare\CC1\bin\Microsoft.Owin.Se
 C:\Users\jdelloro\Documents\GitHub\education-childcare\CC1\bin\Microsoft.Owin.Security.Google.xml
 C:\Users\jdelloro\Documents\GitHub\education-childcare\CC1\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\jdelloro\Documents\GitHub\education-childcare\CC1\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-C:\Users\jdelloro\Documents\GitHub\education-childcare\CC1\obj\Debug\CC1.csprojResolveAssemblyReference.cache
 C:\Users\jdelloro\Documents\GitHub\education-childcare\CC1\obj\Debug\CC1.dll
 C:\Users\jdelloro\Documents\GitHub\education-childcare\CC1\obj\Debug\CC1.pdb

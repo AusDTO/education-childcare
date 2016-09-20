@@ -210,6 +210,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AttendanceExpectedsController.cs" />
+    <Compile Include="Controllers\AttendancesController.cs" />
     <Compile Include="Controllers\ChildGuardiansController.cs" />
     <Compile Include="Controllers\ChildrenController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -295,6 +297,7 @@
     <Compile Include="Models\user.cs">
       <DependentUpon>CCAttendanceModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\attendanceExtended.cs" />
     <Compile Include="Models\userExtended.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -410,6 +413,17 @@
     <Content Include="Views\ChildGuardians\Edit.cshtml" />
     <Content Include="Views\ChildGuardians\Index.cshtml" />
     <Content Include="Views\ChildGuardians\Create2.cshtml" />
+    <Content Include="Views\Attendances\Create.cshtml" />
+    <Content Include="Views\Attendances\Delete.cshtml" />
+    <Content Include="Views\Attendances\Details.cshtml" />
+    <Content Include="Views\Attendances\Edit.cshtml" />
+    <Content Include="Views\Attendances\Index.cshtml" />
+    <Content Include="Views\AttendanceExpecteds\Create.cshtml" />
+    <Content Include="Views\AttendanceExpecteds\Delete.cshtml" />
+    <Content Include="Views\AttendanceExpecteds\Details.cshtml" />
+    <Content Include="Views\AttendanceExpecteds\Edit.cshtml" />
+    <Content Include="Views\AttendanceExpecteds\Index.cshtml" />
+    <Content Include="Views\Attendances\Welcome.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
